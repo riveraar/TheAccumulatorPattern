@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Angel Rivera.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -96,7 +96,7 @@ def draw_parallel_lines(n, point, length, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -109,6 +109,18 @@ def draw_parallel_lines(n, point, length, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    x = point.x
+    y = point.y
+
+    for k in range(n):
+        point1 = rg.Point(x, y)
+        point2 = rg.Point(x + length, y)
+        line = rg.Line(point1, point2)
+        y = y + 30
+        line.attach_to(window)
+
+    window.render()
 
 
 def run_test_draw_lines():
@@ -174,6 +186,18 @@ def draw_lines(n, point, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ####################################################################
     # ------------------------------------------------------------------
+
+    x1 = point.x
+    y1 = point.y
+    adding = ((y1 + 100) - (y1 - 100)) / n
+
+    for k in range(n):
+        point1 = rg.Point(x1, y1)
+        point2 = rg.Point(x1 + 100, (y1 - 100) + (adding * k))
+        line = rg.Line(point1, point2)
+        line.attach_to(window)
+
+    window.render()
 
 
 # ----------------------------------------------------------------------
